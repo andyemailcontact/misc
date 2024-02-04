@@ -48,8 +48,8 @@ public class RatInMaze {
             sol[x][y] = 1;
             return true;
         }
-        int[] xCoord = {0, 1, 0, -1};
-        int[] yCoord = {1, 0, -1, 0};
+        int[] xCoord = {1, 0};
+        int[] yCoord = {0, 1};
         if (x >= 0 && x < N && y >= 0 && y < N && maze[x][y] == 1) {
             sol[x][y] = 1;
             for (int i=0; i<4; i++) {
@@ -58,9 +58,8 @@ public class RatInMaze {
                 /* Move forward in x direction */
                 if (backtrack(maze, x + xCoord[i], y + yCoord[i], sol))
                     return true;
-
-                sol[x][y] = 0;
             }
+            sol[x][y] = 0;
         }
         return false;
     }

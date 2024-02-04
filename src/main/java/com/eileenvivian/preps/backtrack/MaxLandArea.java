@@ -19,6 +19,7 @@ class MaxLandArea {
 
         grid[i][j] = 0;
         int count = 1;
+        // each call will recursively call 4 neighboring grid. Call ends when grid is zero or out of bound
         count += dfs(grid, i , j+1);
         count += dfs(grid, i , j-1);
         count += dfs(grid, i+1, j);

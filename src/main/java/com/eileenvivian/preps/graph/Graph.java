@@ -13,7 +13,7 @@ class Graph {
     private int numVertices;
 
     // Adjacency Lists
-    private LinkedList<Integer> adj[];
+    private LinkedList<Integer>[] adj;
 
     // Constructor
     Graph(int vertNum) {
@@ -25,10 +25,12 @@ class Graph {
     }
 
     // Function to add an edge into the graph
-    void addEdge(int v, int w) { adj[v].add(w); }
+    void addEdge(int vertice, int neighbor) {
+        adj[vertice].add(neighbor);
+    }
 
-    // prints BFS traversal from a given source s
-    void BFS(int s) {
+    // prints BFS traversal from a given source node
+    void BFS(int node) {
         // Mark all the vertices as not visited(By default
         // set as false)
         boolean visited[] = new boolean[numVertices];
@@ -37,19 +39,19 @@ class Graph {
         LinkedList<Integer> queue = new LinkedList<>();
 
         // Mark the current node as visited and enqueue it
-        visited[s] = true;
-        queue.add(s);
+        visited[node] = true;
+        queue.add(node);
 
         while (queue.size() != 0) {
             // Dequeue a vertex from queue and print it
-            s = queue.poll();
-            System.out.print(s + " ");
+            node = queue.poll();
+            System.out.print(node + " ");
 
             // Get all adjacent vertices of the dequeued
-            // vertex s.
+            // vertex node.
             // If an adjacent has not been visited,
             // then mark it visited and enqueue it
-            Iterator<Integer> i = adj[s].listIterator();
+            Iterator<Integer> i = adj[node].listIterator();
             while (i.hasNext()) {
                 int n = i.next();
                 if (!visited[n]) {

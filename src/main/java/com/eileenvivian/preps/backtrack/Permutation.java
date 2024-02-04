@@ -25,6 +25,7 @@ class Permutation {
             if (!curr.contains(num)) {
                 // add and check
                 curr.add(num);
+
                 backtrack(curr, ans, nums);
                 // backout
                 curr.remove(curr.size() - 1);

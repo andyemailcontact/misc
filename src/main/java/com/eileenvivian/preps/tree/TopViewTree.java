@@ -31,8 +31,7 @@ public class TopViewTree {
             }
         }
         Queue<QueueObj> q = new LinkedList<>();
-        Map<Integer, TreeNode> topViewMap
-                = new TreeMap<Integer, TreeNode>();
+        Map<Integer, TreeNode> topViewMap = new TreeMap<>();
 
         if (root == null) {
             return;

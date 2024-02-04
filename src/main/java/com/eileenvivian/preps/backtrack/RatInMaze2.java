@@ -71,9 +71,9 @@ public class RatInMaze2 {
     {
         RatInMaze2 rat = new RatInMaze2();
         int maze[][] = { { 1, 0, 0, 0 },
-                { 1, 1, 0, 1 },
-                { 0, 1, 0, 0 },
-                { 1, 1, 1, 1 } };
+                         { 1, 1, 0, 1 },
+                         { 0, 1, 0, 0 },
+                         { 1, 1, 1, 1 } };
         rat.solveMaze(maze);
     }
 }

@@ -29,25 +29,25 @@ public class SubTree {
                 && areIdentical(root1.right, root2.right));
     }
 
-    /* This function returns true if S is a subtree of T,
+    /* This function returns true if tree2 is a subtree of T,
      * otherwise false */
-    boolean isSubtree(TreeNode T, TreeNode S) {
+    boolean isSubtree(TreeNode tree1, TreeNode tree2) {
         /* base cases */
-        if (S == null)
+        if (tree2 == null)
             return true;
 
-        if (T == null)
+        if (tree1 == null)
             return false;
 
         /* Check the tree with root as current node */
-        if (areIdentical(T, S))
+        if (areIdentical(tree1, tree2))
             return true;
 
 		/* If the tree with root as current node doesn't
 		match then
 		try left and right subtrees one by one */
-        return isSubtree(T.left, S)
-                || isSubtree(T.right, S);
+        return isSubtree(tree1.left, tree2)
+                || isSubtree(tree1.right, tree2);
     }
 
     public static void main(String args[]) {
