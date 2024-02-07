@@ -61,7 +61,7 @@ public class TopViewTree {
         }
         for (Map.Entry<Integer, TreeNode> entry :
                 topViewMap.entrySet()) {
-            System.out.print(entry.getValue().data + " ");
+            System.out.print(entry.getValue().val + " ");
         }
     }
 

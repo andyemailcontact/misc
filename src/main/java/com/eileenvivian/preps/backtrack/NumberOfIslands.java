@@ -1,20 +1,20 @@
 package com.eileenvivian.preps.backtrack;
 
 class NumberOfIslands {
-    void dfs(int[][] grid, int r, int c) {
+    void dfs(int[][] grid, int row, int col) {
         int nr = grid.length;
         int nc = grid[0].length;
 
-        if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == 0) {
+        if (row < 0 || col < 0 || row >= nr || col >= nc || grid[row][col] == 0) {
             return;
         }
 
-        grid[r][c] = 0;
+        grid[row][col] = 0;
         // each call will recursively call 4 neighboring grid. Call ends when grid is zero or out of bound
-        dfs(grid, r - 1, c);
-        dfs(grid, r + 1, c);
-        dfs(grid, r, c - 1);
-        dfs(grid, r, c + 1);
+        dfs(grid, row - 1, col);
+        dfs(grid, row + 1, col);
+        dfs(grid, row, col - 1);
+        dfs(grid, row, col + 1);
     }
 
     public int numIslands(int[][] grid) {

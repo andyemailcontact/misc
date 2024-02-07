@@ -24,7 +24,7 @@ public class SubTree {
 
 		/* Check if the data of both roots is same and data
 		of left and right subtrees are also same */
-        return (root1.data == root2.data
+        return (root1.val == root2.val
                 && areIdentical(root1.left, root2.left)
                 && areIdentical(root1.right, root2.right));
     }

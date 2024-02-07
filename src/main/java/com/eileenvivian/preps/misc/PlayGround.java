@@ -1,20 +1,14 @@
 package com.eileenvivian.preps.misc;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class PlayGround {
     public static void main(String[] args) {
-//        Deque<Integer> arrayDeque = new ArrayDeque<>();
-//        arrayDeque.add(1);
-//        arrayDeque.add(2);
-//        arrayDeque.add(3);
-//        arrayDeque.addFirst(6);
-//        System.out.println(arrayDeque);
-//        arrayDeque.remove();
-//        System.out.println(arrayDeque);
-        int[] arr = new int[]{1, 2, 3, 4, 4, 4, 4, 5, 9, 12};
+        int num = 20;
+        for(int i=20; i>0; i--) {
+            System.out.println(Integer.toBinaryString(num));
+            System.out.println("right bit: " + (num & 1));
+            num = num >> 1;
+        }
 
+        System.out.println("exp=" + Integer.toBinaryString((int) (Math.pow(2, 5) - 1)));
     }
-
 }

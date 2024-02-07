@@ -34,7 +34,7 @@ public class SumTree {
     }
     private static void printKPath(TreeNode node, List<Integer> list, int sum) {
         if (node == null) return;
-        list.add(node.data);
+        list.add(node.val);
         printKPath(node.left, list, sum);
         printKPath(node.right, list, sum);
         int total=0;
