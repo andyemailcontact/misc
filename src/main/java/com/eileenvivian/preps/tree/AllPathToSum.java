@@ -1,5 +1,6 @@
 package com.eileenvivian.preps.tree;
 
+import com.eileenvivian.preps.BTreePrinter;
 import com.eileenvivian.preps.TreeNode;
 
 import java.util.*;
@@ -22,7 +23,7 @@ class AllPathToSum {
         return allPaths;
     }
 
-    private static void findPathsRecursive(TreeNode currentNode, int sum,
+    private static void findPathsRecursive(TreeNode<Integer> currentNode, int sum,
                                            List<Integer> currentPath, List<List<Integer>> allPaths) {
         if (currentNode == null)
             return;
@@ -38,8 +39,7 @@ class AllPathToSum {
             // traverse the left sub-tree
             findPathsRecursive(currentNode.left, sum - currentNode.val, currentPath, allPaths);
             // traverse the right sub-tree
-            findPathsRecursive(currentNode.right, sum - currentNode.val,
-                    currentPath, allPaths);
+            findPathsRecursive(currentNode.right, sum - currentNode.val, currentPath, allPaths);
         }
 
         // remove the current node from the path to backtrack,
@@ -55,8 +55,12 @@ class AllPathToSum {
         root.left.left = new TreeNode(4);
         root.right.left = new TreeNode(10);
         root.right.right = new TreeNode(5);
+        root.left.left.left = new TreeNode(3);
+        root.left.left.right = new TreeNode(6);
         int sum = 23;
+        BTreePrinter.printNode(root);
         List<List<Integer>> result = sol.findPaths(root, sum);
         System.out.println("Tree paths with sum " + sum + ": " + result);
     }
+
 }

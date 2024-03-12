@@ -25,8 +25,7 @@ public class CoinChangeWays {
 
         // count is sum of solutions (i)
         // including coins[n-1] (ii) excluding coins[n-1]
-        return count(coins, i + 1, sum)
-                + count(coins, i, sum - coins[i]);
+        return count(coins, i + 1, sum) + count(coins, i, sum - coins[i]);
     }
 
     public static void main(String[] args) {

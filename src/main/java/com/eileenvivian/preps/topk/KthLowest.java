@@ -13,7 +13,7 @@ class KthLowest {
         for (int n: nums) {
             heap.offer(n);
             System.out.println("queue: " + heap);
-            // lop off smallest
+            // lop off smallest, makes run time nlog k and not nlogn.
             if (heap.size() > k) {
                 heap.poll();
             }

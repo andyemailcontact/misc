@@ -37,7 +37,7 @@ public class Misc {
 
     public static void main(String[] args) {
         Misc misc = new Misc();
-        int val = misc.removeDuplices(new int[]{1, 1, 1, 2, 2, 5, 8, 9});
+        int val = misc.removeDuplices(new int[]{1, 1, 1, 2, 2, 5, 8, 9, 9});
         System.out.println("->" + val);
     }
 }

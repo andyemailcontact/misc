@@ -1,5 +1,7 @@
 package com.eileenvivian.preps.misc;
 
+import java.util.Arrays;
+
 public class Spiral {
     public static int[][] genSpiral(int rows, int cols) {
         int[][] matrix = new int[rows][cols];
@@ -13,7 +15,7 @@ public class Spiral {
             matrix[row][col] = num;
             row += rowDir[dir];
             col += colDir[dir];
-            if (isInvalid(matrix, row, col)) {
+            if (row < 0 || row >= rows || col < 0 || col >= cols || matrix[row][col] != 0) {
                 row -= rowDir[dir];
                 col -= colDir[dir];
                 dir = (dir + 1) % 4;
@@ -23,12 +25,14 @@ public class Spiral {
         }
         return matrix;
     }
-    private static boolean isInvalid(int[][] m, int r, int c) {
-        return r<0||c<0||r>=m.length||c>= m[0].length||m[r][c] != 0;
-    }
 
     public static void main(String[] args) {
         int[][] matrix = genSpiral(10, 5);
-        System.out.println(matrix);
+        for(int[] row : matrix) {
+            for(int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
     }
 }

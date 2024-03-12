@@ -48,6 +48,7 @@ public class Sudoku {
         }
         return true; // If the board is completely filled, return true
     }
+
     public static void main(String[] args) {
         Sudoku sol = new Sudoku();
         // Test case 1
@@ -83,7 +84,7 @@ public class Sudoku {
         }
 
         // Test case 2
-        board = new char[][] {
+        board = new char[][]{
                 {'8', '.', '.', '.', '.', '.', '.', '.', '.'},
                 {'.', '.', '3', '6', '.', '.', '.', '.', '.'},
                 {'.', '7', '.', '.', '9', '.', '2', '.', '.'},

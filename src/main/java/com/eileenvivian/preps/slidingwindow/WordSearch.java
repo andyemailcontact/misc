@@ -2,7 +2,7 @@ package com.eileenvivian.preps.slidingwindow;
 
 import java.util.*;
 
-class Solution {
+class WordSearch {
     public List<Integer> findWordConcatenation(String str, String[] words) {
         Map<String, Integer> wordFrequencyMap = new HashMap<>();
         for (String word : words)
@@ -36,11 +36,9 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
-        List<Integer> result = sol.findWordConcatenation(
-                "catfoxcats", new String[] { "cats", "fox" });
-        System.out.println(result);
-        result = sol.findWordConcatenation(
-                "catcatfoxfox", new String[] { "cat", "fox" });
+        WordSearch sol = new WordSearch();
+        String[] words = new String[]{"foo", "bar"};
+        List<Integer> result = sol.findWordConcatenation("barfoothefoobarman" , words);
+        System.out.println(result); // [0, 9]
     }
 }

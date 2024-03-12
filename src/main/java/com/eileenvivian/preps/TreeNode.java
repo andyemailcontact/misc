@@ -1,10 +1,10 @@
 package com.eileenvivian.preps;
 
-public class TreeNode {
-    public int val;
+public class TreeNode<T extends Comparable<?>> {
+    public T val;
     public TreeNode left, right;
 
-    public TreeNode(int item)
+    public TreeNode(T item)
     {
         val = item;
         left = right = null;

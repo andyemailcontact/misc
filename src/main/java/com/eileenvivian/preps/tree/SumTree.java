@@ -1,5 +1,6 @@
 package com.eileenvivian.preps.tree;
 
+import com.eileenvivian.preps.BTreePrinter;
 import com.eileenvivian.preps.TreeNode;
 
 import java.util.ArrayList;
@@ -28,12 +29,15 @@ public class SumTree {
         root.right.left.right = new TreeNode(2);
         root.right.right = new TreeNode(5);
         root.right.right.right = new TreeNode(2);
+        BTreePrinter.printNode(root);
 
         int k = 5;
         printKPath(root, new ArrayList<>(), k);
     }
-    private static void printKPath(TreeNode node, List<Integer> list, int sum) {
-        if (node == null) return;
+    private static void printKPath(TreeNode<Integer> node, List<Integer> list, int sum) {
+        if (node == null) {
+            return;
+        }
         list.add(node.val);
         printKPath(node.left, list, sum);
         printKPath(node.right, list, sum);

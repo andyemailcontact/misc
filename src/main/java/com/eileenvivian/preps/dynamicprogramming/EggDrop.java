@@ -15,17 +15,16 @@ public class EggDrop {
             return floors;
 
         int min = Integer.MAX_VALUE;
-        int x, res;
+        int res;
 
         // Consider all droppings from
         // 1st floor to kth floor and
         // return the minimum of these
         // values plus 1.
-        for (x = 1; x <= floors; x++) {
-            res = Math.max(eggDrop(eggNum - 1, x - 1),
-                    eggDrop(eggNum, floors - x));
-            if (res < min)
-                min = res;
+        for (int x = 1; x <= floors; x++) {
+            // with break vs non-break
+            res = Math.min(eggDrop(eggNum - 1, x - 1), eggDrop(eggNum, floors - x));
+            min = Math.min(res, min);
         }
 
         return min + 1;

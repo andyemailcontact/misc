@@ -1,4 +1,4 @@
-package com.eileenvivian.preps.backtrack;
+package com.eileenvivian.preps.permutation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,24 +11,26 @@ import java.util.List;
 class Permutation {
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
-        backtrack(new ArrayList<>(), ans, nums);
+        backtrack(new ArrayList<>(), ans, nums, new boolean[nums.length]);
         return ans;
     }
 
-    private static void backtrack(List<Integer> curr, List<List<Integer>> ans, int[] nums) {
+    private static void backtrack(List<Integer> curr, List<List<Integer>> ans, int[] nums, boolean[] used) {
         if (curr.size() == nums.length) {
             ans.add(new ArrayList<>(curr));
             return;
         }
 
-        for (int num: nums) {
-            if (!curr.contains(num)) {
+        for (int i=0; i<nums.length; i++) {
+            //if (!curr.contains(num)) {
                 // add and check
-                curr.add(num);
-
-                backtrack(curr, ans, nums);
+            if (!used[i]) {
+                curr.add(nums[i]);
+                used[i] = true;
+                backtrack(curr, ans, nums, used);
                 // backout
                 curr.remove(curr.size() - 1);
+                used[i] = false;
             }
         }
     }
