@@ -1,4 +1,0 @@
-* Cool
-* Hot
-* Super
-* 
