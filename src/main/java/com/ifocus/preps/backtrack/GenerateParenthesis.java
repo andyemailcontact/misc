@@ -33,7 +33,7 @@ public class GenerateParenthesis {
     }
 
     public static void main(String[] args) {
-        List<String> strings = new GenerateParenthesis().generateParenthesis(3);
+        List<String> strings = new GenerateParenthesis().generateParenthesis(6);
         strings.forEach(System.out::println);
     }
 }

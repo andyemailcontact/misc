@@ -12,7 +12,6 @@ import javax.annotation.PostConstruct;
 @EnableConfigurationProperties(Info.class)
 public class TwinkiesApplication {
 	@Autowired
-	Info info;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TwinkiesApplication.class, args);
