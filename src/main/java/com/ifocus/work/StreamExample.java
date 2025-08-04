@@ -1,19 +1,52 @@
 package com.ifocus.work;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{name='" + name + "', age=" + age + '}';
+    }
+}
+
 public class StreamExample {
-    // remove "id" parameter and value from query string
-    String query ="id=1&name=John&age=30&ts=123456";
-    String newQuery = Arrays.stream(query.split("&"))
-            .filter(param -> !param.startsWith("id="))
-            .collect(Collectors.joining("&")); // Return new type
-            //Other collectors:
-    //Collectors.toList() - To collect into a list.
-    //Collectors.toSet() - To collect into a set.
-    //Collectors.toMap() - To collect into a map.
-    //Collectors.joining() - To join elements into a string.
-    //Collectors.groupingBy() - To group elements based on a certain criteria.
-    //Collectors.summarizingInt()
+    public static void main(String[] args) {
+        // Example usage of the people list
+        List<Person> people = Arrays.asList(
+                new Person("Alice", 30),
+                new Person("Bob", 25),
+                new Person("Charlie", 20),
+                new Person("David", 20));
+        List<Person> list = people.stream().sorted(
+                (p1, p2) -> {
+                    int ageComparison = Integer.compare(p1.getAge(), p2.getAge());
+                    if (ageComparison != 0) {
+                        return ageComparison; // Sort by age first
+                    }
+                    return p1.getName().compareTo(p2.getName()); // Then by name
+                })
+                .collect(Collectors.toList());
+        list.forEach(System.out::println);
+
+
+    }
+
 }
